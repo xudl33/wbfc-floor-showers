@@ -1,0 +1,17 @@
+{
+	"components":[{
+		"id": "fs-products-show-hor-link",
+		"name":"商品展示列表(分类横版)",
+		"desc": "商品展示列表 分类导航为横向面包屑链接，点击跳转",
+		"codePath": "https://github.com/xudl33/wbfc-vs-tpl-editor/tree/master/src/components/fs-products-show-hor-link/fs-products-show-hor-link",
+		"demoPath": "https://github.com/xudl33/wbfc-vs-tpl-editor/tree/master/src/views/fs-products-show-hor-link-demo",
+		"editorPath": "https://github.com/xudl33/wbfc-vs-tpl-editor/tree/master/src/components/fs-products-show-hor-link/fs-products-show-hor-link-tpl-editor"
+	},{
+		"id": "fs-products-show-vertical",
+		"name":"商品展示列表(分类竖版)",
+		"desc": "商品展示列表 分类导航为纵向按钮链接，点击跳转",
+		"codePath": "https://github.com/xudl33/wbfc-vs-tpl-editor/tree/master/src/components/fs-products-show-hor-link",
+		"demoPath": "https://github.com/xudl33/wbfc-vs-tpl-editor/tree/master/src/views/fs-products-show-ver-link-demo",
+		"editorPath": "https://github.com/xudl33/wbfc-vs-tpl-editor/tree/master/src/components/fs-products-show-hor-link/fs-products-show-ver-link-tpl-editor"
+	}]
+}
