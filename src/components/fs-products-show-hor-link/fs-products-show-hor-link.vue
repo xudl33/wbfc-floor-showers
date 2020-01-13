@@ -38,9 +38,10 @@
       <div>
         <el-row>
           <el-col class="title-container" :span="navIsVertical?6:24" :class="navIsVertical?'is-vertical':''">
+            <div class="title-line is-vertical" v-if="navDataFlag == false && categoryDataFlag == false && categoryAllFlag == false"><span>&nbsp;</span></div>
             <el-row class="title-line" v-if="showTemplete || navDataFlag || categoryDataFlag || categoryAllFlag" :class="navIsVertical?'is-vertical':''">
               <template>
-                <el-col class="nav-header">
+                <el-col class="nav-header" v-if="navDataFlag">
                   <!-- 楼层信息插槽 -->
                   <slot name="nav-header" :navData='navData'>
                     <div v-if="navDataFlag || showTemplete">
@@ -68,7 +69,7 @@
                 <el-col class="nav-category">
                   <div class="category-line">
                     <template v-if="navIsVertical">
-                      <div class="ver-category-table">
+                      <div class="ver-category-table" v-if="!showTemplete && categoryDataFlag && categoryData && categoryData.list">
                         <div class="ver-category-cell" v-for="(cate, index) in categoryData.list" :key="'category-item-' + index">
                           <el-button round class="ver-category-item">
                             <a v-if="cate.href" :href="cate.href">{{cate.text}}</a>
@@ -587,7 +588,7 @@ export default {
         };
       }
     },
-    productHeight: { // 配色方案
+    productHeight: { // 商品信息显示高度
       type: String,
       default () {
         return '30rem';

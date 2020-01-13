@@ -1,6 +1,6 @@
 {
   "name": "wbfc-floor-shower",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Vue component for wbfcloud framework.It's use to show the floors on the portal pages.amework",
   "author": "xudalin <xudl@wisea.com.cn>",
   "private": true,

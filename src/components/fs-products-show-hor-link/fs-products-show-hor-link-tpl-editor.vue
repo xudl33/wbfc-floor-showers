@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fs-products-show-hor-link-tpl-editor">
     <TempleteEditor :is-edit="true" :tpl-form-elems="tplFormElems" v-model="tplModel" ref="tpl" :tpl-form="tplForm">
       <template v-slot:showTemplete>
         <FsProductsShowHorLink :show-templete="true">
@@ -43,7 +43,9 @@
             <el-table-column fixed="right" label="操作">
               <template slot-scope="scope">
                 <div class="category-list-btn">
-                  <LinkEditor :def-val="scope.row" :prop-mapping="{label: 'text'}" :submit-dialog="updatgeCategoryData" :dialog-props="{closeOnClickModal:false}" :form-props="{rules: {text: [{ required: true, message: '请输入显示文字', trigger: 'blur' }]}}">
+                  <LinkEditor :def-val="scope.row" :prop-mapping="{label: 'text'}" :submit-dialog="(val) => {
+                      return updatgeCategoryData(val, scope.$index);
+                    }" :dialog-props="{closeOnClickModal:false}" :form-props="{rules: {text: [{ required: true, message: '请输入显示文字', trigger: 'blur' }]}}">
                     <template v-slot:view-label="sc">
                       <el-button type="text">
                         编辑
@@ -92,6 +94,9 @@
 
 </style>
 <style type="text/css" scoped>
+.fs-products-show-hor-link-tpl-editor >>> .templete-editor{
+  --pageViewHeight: 50rem;
+}
 .color-schemes-line {
   height: 40px;
   text-align: left;
@@ -460,12 +465,9 @@ export default {
       // 添加一个分类列表
       this.tplModel.categoryList.push(val);
     },
-    updatgeCategoryData(val) {
-      // 添加一个分类列表
-      val.text = val.label;
-      delete val.label;
+    updatgeCategoryData(val, index) {
       // 向模板添加一个新的值，模板会根据bind值自动绑定到组件模型(componentModel)
-      this.tplModel.categoryList.push(val);
+      this.tplModel.categoryList.splice(index, 1, val);
     },
     setCategoryAll(val) {
       this.tplModel.categoryAll = val;
